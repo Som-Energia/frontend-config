@@ -4,14 +4,26 @@
   "description": "Unified frontend configuration from somenergia",
   "type": "module",
   "exports": {
-    "./eslint": "./eslint.js",
-    "./prettier": "./prettier.js",
-    "./vite": "./vite.js"
+    "./eslint": {
+      "types": "./eslint.d.ts",
+      "default": "./eslint.js"
+    },
+    "./prettier": {
+      "types": "./prettier.d.ts",
+      "default": "./prettier.js"
+    },
+    "./vite": {
+      "types": "./vite.d.ts",
+      "default": "./vite.js"
+    }
   },
   "files": [
     "eslint.js",
+    "eslint.d.ts",
     "prettier.js",
-    "vite.js"
+    "prettier.d.ts",
+    "vite.js",
+    "vite.d.ts"
   ],
   "dependencies": {
     "@eslint/js": "^9.13.0",
