@@ -134,7 +134,7 @@ The `factory` argument is merged on top of the base config. Base defaults:
 | -------------------- | -------------------------------------- |
 | `build.outDir`       | `'build'`                              |
 | `build.manifest`     | `'asset-manifest.json'`                |
-| `build.sourcemap`    | `true`                                 |
+| `build.sourcemap`    | `mode === 'development'`               |
 | `build.target`       | `'es2020'`                             |
 | `build.cssCodeSplit` | `false`                                |
 | `server.port`        | `3000`                                 |
@@ -142,7 +142,7 @@ The `factory` argument is merged on top of the base config. Base defaults:
 | `test.globals`       | `true`                                 |
 | `test.environment`   | `'jsdom'`                              |
 | `test.css`           | `true`                                 |
-| `base`               | read from `BASE_URL` in `.env.*` files |
+| `base`               | `BASE_URL` from `.env.*` (fallback `/`) |
 
 ### `createManualChunks(extraChunks?)`
 
