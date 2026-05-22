@@ -14,7 +14,7 @@ npm install --save-dev github:Som-Energia/frontend-config eslint prettier
 Or pin a specific tag or commit:
 
 ```bash
-npm install --save-dev "github:Som-Energia/frontend-config#v1.0.0"
+npm install --save-dev "github:Som-Energia/frontend-config#<tag>"
 ```
 
 If you also use the Vite helper, add `vite` to your dev dependencies:
@@ -22,6 +22,23 @@ If you also use the Vite helper, add `vite` to your dev dependencies:
 ```bash
 npm install --save-dev vite
 ```
+
+### Troubleshooting
+
+#### `@somenergia/frontend-config` not updating when changing the tag
+
+GitHub references in `package.json` do not automatically update the `package-lock.json`
+when the tag changes. This happens because npm resolves the dependency by the commit hash
+stored in the lockfile, ignoring the tag in `package.json`.
+
+**Solution**: force the lockfile entry to be rewritten:
+
+\```bash
+npm install @somenergia/frontend-config@github:Som-Energia/frontend-config#<tag>
+\```
+
+Replace `<tag>` with the desired version, e.g. `v1.1.0`. Then commit the updated
+`package-lock.json`.
 
 ---
 
