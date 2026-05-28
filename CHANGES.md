@@ -1,6 +1,6 @@
 # CHANGES
 
-## Unreleased
+## v1.1.2 (28-05-2026) 
 
 - Ref: add config param to avoid manualChunks merging (vite)
 - Ref: only in development mode add source maps files (vite)
