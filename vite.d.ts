@@ -19,9 +19,12 @@ export declare const defaultVendorChunks: VendorChunk[]
  *
  * @param extraChunks - Additional chunks checked **before** the defaults.
  *                      Useful for project-specific packages (lodash, formik…).
+ * @param args - Optional args to ignore the defaults chunks.
+ *
  */
 export declare function createManualChunks(
   extraChunks?: VendorChunk[],
+  args?: { ignoreDefaults?: boolean; logUnmatched?: boolean },
 ): (id: string) => string | undefined
 
 /**
@@ -33,7 +36,7 @@ export declare function createManualChunks(
  * - Vitest configuration with jsdom
  * - Dev server on port 3000
  *
- * @param factory - A project config object **or** a function `({ mode, command }) => config`.
+ * @param factory - A project config object **or** a function `({ mode, command, env }) => config`.
  *                  Deep-merged on top of the shared defaults.
  *                  Pass `plugins` here: `[react(), svgr(), …]`
  *
@@ -47,5 +50,5 @@ export declare function createManualChunks(
  * }))
  */
 export declare function createAppConfig(
-  factory?: UserConfig | ((env: ConfigEnv) => UserConfig),
+  factory?: UserConfig | ((env: ConfigEnv & { env: Record<string, string> }) => UserConfig),
 ): UserConfigFn
